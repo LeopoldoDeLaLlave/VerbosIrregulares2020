@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-secondary">Left</button>
-        <button type="button" class="btn btn-secondary">Middle</button>
-        <button type="button" class="btn btn-secondary">Right</button>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card text-center">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <h5 class="card-title">Test verbos irregulares</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div id="principal">
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Elige el número de verbos</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button type="button" class="btn btn-primary btn-lg m-3">10</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3">20</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3">30</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3">40</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3">50</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3">60</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3">70</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3">80</button>
+                    <button onclick="abrir()" type="button" class="btn btn-primary btn-lg m-3">140</button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        function abrir() {
+            $('#principal').load('partida.html')
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </body>
+
 </html>
