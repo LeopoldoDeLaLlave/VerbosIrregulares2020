@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="card text-center">
-                    <div class="card-header"></div>
+                    <div class="card-header" id="headerNumeroPreguntas"></div>
                     <div class="card-body">
                         <h5 class="card-title">Test verbos irregulares</h5>
                     </div>
@@ -25,7 +25,6 @@
         </div>
         <br><br>
         <div id="principal">
-
 
             <div class="row">
                 <div class="col-12">
@@ -40,27 +39,40 @@
             <br><br>
             <div class="row">
                 <div class="col-12 text-center">
-                    <button type="button" class="btn btn-primary btn-lg m-3">10</button>
-                    <button type="button" class="btn btn-primary btn-lg m-3">20</button>
-                    <button type="button" class="btn btn-primary btn-lg m-3">30</button>
-                    <button type="button" class="btn btn-primary btn-lg m-3">40</button>
-                    <button type="button" class="btn btn-primary btn-lg m-3">50</button>
-                    <button type="button" class="btn btn-primary btn-lg m-3">60</button>
-                    <button type="button" class="btn btn-primary btn-lg m-3">70</button>
-                    <button type="button" class="btn btn-primary btn-lg m-3">80</button>
-                    <button onclick="abrir()" type="button" class="btn btn-primary btn-lg m-3">140</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">10</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">20</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">30</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">40</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">50</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">60</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">70</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">80</button>
+                    <button type="button" class="btn btn-primary btn-lg m-3 btnNumPreguntas">140</button>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
-    <script>
-        function abrir() {
-            $('#principal').load('partida.html')
-        }
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!--Verbos irregulares-->
+    <script src="./js/listaVerbos.js"></script>
+    <!--Mi JavaScript-->
+    <script src="./js/controlIndex.js"></script>
+    
 </body>
 
 </html>
