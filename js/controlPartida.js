@@ -1,6 +1,7 @@
 $(document).ready(() => {
 
-    $('#comprobar').click(siguiente);
+    $('#comprobar').click(comprobar);
+    
     nuevaPregunta();
 
 });
