@@ -1,8 +1,9 @@
 $(document).ready(() => {
-    crearArray();
-    $('.btnNumPreguntas').click(abrir);
+    crearArray();  
     $('.btnNumPreguntas').click(desordenarArray);
-    $('#comprobar').click(siguiente);
+    $('.btnNumPreguntas').click(abrir);
+    
+
 
 });
 
@@ -44,27 +45,25 @@ function desordenarArray() {
 function abrir() {
     nPreguntas = $(this).text();
     $("#headerNumeroPreguntas").text(nPreguntas);
+    //Tenemos que cargarlo primero para que la función nueva pregunta exista
     $('#principal').load('partida.html');
-    nuevaPregunta();
 
 }
 
 //Pone una nueva pregunta
 function nuevaPregunta() {
     //Ponemos el verbo en español en la pregunta
-    $('#verboEsp').text(verbos[nPreguntas][3]);
+    $('#verboEsp').text(verbos[arrayNumero[preguntaActual]][3]);
     //Ponemos los verbos en inglés
-    $('#base').text(verbos[nPreguntas][0]);
-    $('#pasado').text(verbos[nPreguntas][1]);
-    $('#participio').text(verbos[nPreguntas][2]);
-    console.log(preguntaActual);
-    console.log(verbos[nPreguntas][2]);
+    $('#base').text(verbos[arrayNumero[preguntaActual]][0]);
+    $('#pasado').text(verbos[arrayNumero[preguntaActual]][1]);
+    $('#participio').text(verbos[arrayNumero[preguntaActual]][2]);
+
 };
 
 
 //pasa a la siguiente pregunta
 function siguiente() {
-    console.log("hola");
     preguntaActual++;
     nuevaPregunta();
 }
