@@ -1,4 +1,8 @@
 $(document).ready(() => {
+    //Controlamos las superEstrellas
+    gestionarCookies();
+    $('#headerSuperEstrellas').text("SuperEstrellas: "+superEstrellas);
+
     crearArray();  
     $('.btnNumPreguntas').click(desordenarArray);
     $('.btnNumPreguntas').click(abrir);
@@ -16,6 +20,13 @@ var preguntaActual = 0;
 
 //Nos indica que respuesta esta oculta
 var respuestaOculta;
+
+//Puntos que lleva el jugador
+var puntos = 0;
+
+
+//SuperEstrellas que lleva el jugador
+var superEstrellas;
 
 //Nos va a crear un array con tantos números como preguntas haya
 function crearArray() {
@@ -65,6 +76,12 @@ function nuevaPregunta() {
     quitarUnaOpcion();
     //Ponemos cuantas preguntas lleva
     $("#headerNumeroPreguntas").text(preguntaActual+"/"+nPreguntas);
+
+    //Actualizamos los puntos
+    $('#puntos').text("puntos: "+puntos+"/20");
+    
+    //Actualizamos superEstrellas
+    $('#headerSuperEstrellas').text("SuperEstrellas: "+superEstrellas);
 };
 
 //Cambiamos una de las respuestas por un hueco en blanco para que conteste el usuario
@@ -101,7 +118,18 @@ function comprobar(){
     if($('#respuesta').val().localeCompare(verbos[arrayNumero[preguntaActual]][respuestaOculta])==0){
         //Si no ha terminado las preguntas pasamos a la siguiente
         if(preguntaActual<nPreguntas){
+            //Si el usuario consigue 20 puntos obtiene una superEstrella
+            if(puntos<19){
+                puntos++;
+            }else{
+                puntos=0;
+                superEstrellas++;
+                var strCookie="superEstrellas="+superEstrellas;
+                document.cookie = strCookie;
+            }
+            
             siguiente();
+            
         }else{
           alert("You win!");
           $("#comprobar").attr("disabled","disabled");
@@ -116,6 +144,20 @@ function comprobar(){
     }
 }
 
+//Almacena las superestrellas que ha conseguido el usuario
+function gestionarCookies(){
+    //Si ya hay cookies guardadas
+    if(document.cookie){
+        var lasCookies = document.cookie;
+        //Obtenemos las superestrellas guardadas en las cookies
+        superEstrellas = lasCookies.split('=')[1];
+    }else{//Si no hay cookies guardadas las creamos
+        document.cookie = "superEstrellas=0";
+        superEstrellas=0;
+    }
+
+    
+}
 
 
 
