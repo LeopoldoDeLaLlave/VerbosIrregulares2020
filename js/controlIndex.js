@@ -4,7 +4,7 @@ $(document).ready(() => {
     $('#headerSuperEstrellas').text("SuperEstrellas: " + superEstrellas);
 
     crearArray();
-    $('.btnNumPreguntas').click(desordenarArray);
+    //$('.btnNumPreguntas').click(desordenarArray);
     $('.btnNumPreguntas').click(abrir);
 
 
@@ -150,8 +150,20 @@ function siguiente() {
 //Comprueba si la respuesta es correcta
 function comprobar() {
 
+    //Esta es la respuesta que tiene que dar el usuario
+    const verboComparar = verbos[arrayNumero[preguntaActual]][respuestaOculta];
+
+
+    //En caso de que hay más de una respuesta lo tenemos en cuenta
+    if(verboComparar.includes("/")){
+        var verbo1= verboComparar.substr(0, verboComparar.indexOf('/')); 
+        var verbo2=verboComparar.split('/')[1];;
+    }
+
     //Si acierta ponemos la siguiente pregunta
-    if ($('#respuesta').val().localeCompare(verbos[arrayNumero[preguntaActual]][respuestaOculta]) == 0) {
+    if ($('#respuesta').val().localeCompare(verboComparar) == 0 ||(verboComparar.includes("/") && 
+        ($('#respuesta').val().localeCompare(verbo1) == 0 
+        || $('#respuesta').val().localeCompare(verbo2) == 0) ) ) {
         //Si no ha terminado las preguntas pasamos a la siguiente
         if (preguntaActual < nPreguntas) {
             //Si el usuario consigue 10 puntos obtiene una superEstrella y lo guardamos en las cookies
