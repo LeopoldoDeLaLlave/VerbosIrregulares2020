@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    //Controlamos las superEstrellas
+    //Obtenemos los valores guardados en cookies
     gestionarCookies();
     $('#headerSuperEstrellas').text("SuperEstrellas: " + superEstrellas);
     $('.btnNumPreguntas').click(abrir);
@@ -9,10 +9,6 @@ $(document).ready(() => {
         recargada = true;
         abrir();
     }
-
-
-
-
 
 });
 
@@ -42,7 +38,10 @@ var recargada = false;
 
 //Abre una pregunta
 function abrir() {
+    //Si se ha abierto a través de un botón, coge el número que hay escrito en él, si no,
+    //Coge el valor de las cookies
     nPreguntas = $(this).text() ? $(this).text() : nPreguntas;
+    //Guardamos el número de preguntas en las cookies
     document.cookie = "nPreguntas=" + nPreguntas + "; expires=Thu, 18 Dec 2100 12:00:00 UTC";
     $("#headerNumeroPreguntas").text(preguntasContestadas + "/" + nPreguntas);
     //Tenemos que cargarlo primero para que la función nueva pregunta exista
@@ -115,7 +114,7 @@ function nuevaPregunta() {
 //Cambiamos una de las respuestas por un hueco en blanco para que conteste el usuario
 function quitarUnaOpcion() {
 
-    //Si estamos recargando la página usamos la última respuesta oculta apareció,
+    //Si estamos recargando la página usamos la última respuesta oculta que apareció,
     //Si no usamos una aleatoria
     if (recargada) {
         respuestaOculta = parseInt(getCookieValue("respuestaOculta"));
@@ -175,7 +174,7 @@ function comprobar() {
             //Si el usuario consigue 10 puntos obtiene una superEstrella y lo guardamos en las cookies
             if (puntos < 9) {
                 puntos++;
-                //Vsmos guardando los puntos en las cookies
+                //Vamos guardando los puntos en las cookies
                 document.cookie = "puntos=" + puntos + "; expires=Thu, 18 Dec 2100 12:00:00 UTC";
             } else {
                 puntos = 0;
@@ -186,7 +185,7 @@ function comprobar() {
 
             siguiente();
 
-        } else {
+        } else {//Si el jugador responde a todas las preguntas gana
             alert("You win!");
             $("#comprobar").attr("disabled", "disabled");
             reiniciarValores()
