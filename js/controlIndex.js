@@ -56,7 +56,7 @@ function nuevaPregunta() {
     if (recargada) {
         preguntaActual = parseInt(getCookieValue("preguntaActual"));
     } else {
-        preguntaActual = Math.floor(Math.random() * (verbos.length - 1));
+        preguntaActual = Math.floor(Math.random() * (nPreguntas - 1));
         document.cookie = "preguntaActual=" + preguntaActual + "; expires=Thu, 18 Dec 2100 12:00:00 UTC";
     }
 
